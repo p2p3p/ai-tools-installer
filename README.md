@@ -17,6 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/p2p3p/ai-tools-installer
 
 # Cloai
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/p2p3p/ai-tools-installer/main/install-cloai-code.sh)"
+
 ```
 
 ## 环境变量
