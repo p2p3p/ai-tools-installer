@@ -53,7 +53,7 @@ mkdir -p "$(dirname "$VERSION_DIR")" "$BIN_DIR"
 rm -rf "$VERSION_DIR"
 mkdir -p "$VERSION_DIR"
 tar -xzf "$ARCHIVE" -C "$VERSION_DIR" --strip-components=1
-chmod 755 "$VERSION_DIR/claude"
+chmod 755 "$VERSION_DIR/claude-bundle.js"
 
 ln -sfn "versions/$TAG_NAME" "$INSTALL_DIR/current"
 
@@ -64,7 +64,7 @@ exec bun "\$BUNDLE" "\$@"
 SCRIPTEOF
 chmod 755 "$BIN_DIR/claude"
 
-"$INSTALL_DIR/current/claude-bundle.js" --version >/dev/null 2>&1 || {
+bun "$INSTALL_DIR/current/claude-bundle.js" --version >/dev/null 2>&1 || {
   rm -f "$INSTALL_DIR/current"
   die "安装验证失败"
 }
