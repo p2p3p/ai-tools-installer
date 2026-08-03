@@ -64,7 +64,7 @@ exec bun "\$BUNDLE" "\$@"
 SCRIPTEOF
 chmod 755 "$BIN_DIR/claude"
 
-bun "$INSTALL_DIR/current/claude-bundle.js" --version >/dev/null 2>&1 || {
+"$INSTALL_DIR/current/claude-bundle.js" --version >/dev/null 2>&1 || {
   rm -f "$INSTALL_DIR/current"
   die "安装验证失败"
 }
