@@ -19,9 +19,10 @@ for cmd in curl tar mktemp ln; do
   command -v "$cmd" >/dev/null || die "缺少命令: $cmd"
 done
 
-if ! command -v glibc-runner >/dev/null; then
-  command -v pkg >/dev/null || die "需要 glibc-runner，请手动安装"
-  pkg install -y glibc-repo glibc-runner
+if ! command -v glibc-runner >/dev/null 2>&1; then
+  command -v pkg >/dev/null 2>&1 || fail "缺少 glibc-runner，且找不到 pkg"
+  pkg install -y glibc-repo
+  pkg install -y glibc-runner
 fi
 
 echo "获取最新版本..."
