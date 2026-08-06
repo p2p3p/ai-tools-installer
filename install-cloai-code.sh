@@ -23,7 +23,7 @@ for cmd in $DEPS; do
   fi
 done
 
-if ! command -v glibc-runner >/dev/null; then
+if ! command -v grun >/dev/null; then
   echo "安装 glibc-runner..."
   pkg install -y glibc-repo 2>/dev/null || die "安装 glibc-repo 失败"
   pkg install -y glibc-runner 2>/dev/null || die "安装 glibc-runner 失败"
